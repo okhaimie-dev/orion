@@ -57,4 +57,15 @@ impl U32NN of NNTrait<u32> {
     ) -> Tensor<u32> {
         functional::gemm::gemm(A, B, C, alpha, beta, transA, transB)
     }
+
+    fn nonmax_suppression(
+        boxes: @Tensor<u32>, 
+        scores: @Tensor<u32>, 
+        max_output_boxes_per_class: Option<Tensor<u32>>,
+        iou_threshold: Option<Tensor<u32>>,
+        score_threshold: Option<Tensor<u32>>,
+        center_point_box: usize
+    ) -> Tensor<u32> {
+        panic(array!['not supported!'])
+    }
 }

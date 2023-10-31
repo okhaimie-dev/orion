@@ -13,6 +13,7 @@ use orion::operators::tensor::core::Tensor;
 /// hard_sigmoid - Applies the Hard Sigmoid function to an n-dimensional input tensor.
 /// thresholded_relu - Performs the thresholded relu activation function element-wise.
 /// gemm - Performs General Matrix multiplication.
+/// nonmaxsuppression - Performs Non Maximum Suppression.
 trait NNTrait<T> {
     /// # NNTrait::relu
     ///
@@ -634,5 +635,13 @@ trait NNTrait<T> {
         beta: Option<T>,
         transA: bool,
         transB: bool
+    ) -> Tensor<T>;
+    fn nonmax_suppression(
+        boxes: @Tensor<T>, 
+        scores: @Tensor<T>, 
+        max_output_boxes_per_class: Option<Tensor<T>>,
+        iou_threshold: Option<Tensor<T>>,
+        score_threshold: Option<Tensor<T>>,
+        center_point_box: usize
     ) -> Tensor<T>;
 }

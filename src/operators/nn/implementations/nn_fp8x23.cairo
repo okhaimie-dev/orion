@@ -66,4 +66,15 @@ impl FP8x23NN of NNTrait<FP8x23> {
     ) -> Tensor<FP8x23> {
         functional::gemm::gemm(A, B, C, alpha, beta, transA, transB)
     }
+
+    fn nonmax_suppression(
+        boxes: @Tensor<FP8x23>, 
+        scores: @Tensor<FP8x23>, 
+        max_output_boxes_per_class: Option<Tensor<FP8x23>>,
+        iou_threshold: Option<Tensor<FP8x23>>,
+        score_threshold: Option<Tensor<FP8x23>>,
+        center_point_box: usize
+    ) -> Tensor<FP8x23> {
+        functional::nonmax_suppression::nonmax_suppression(boxes, scores, max_output_boxes_per_class, iou_threshold, score_threshold, center_point_box)
+    }
 }

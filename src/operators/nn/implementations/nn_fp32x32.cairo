@@ -62,4 +62,15 @@ impl FP32x32NN of NNTrait<FP32x32> {
     ) -> Tensor<FP32x32> {
         functional::gemm::gemm(A, B, C, alpha, beta, transA, transB)
     }
+
+    fn nonmax_suppression(
+        boxes: @Tensor<FP32x32>, 
+        scores: @Tensor<FP32x32>, 
+        max_output_boxes_per_class: Option<Tensor<FP32x32>>,
+        iou_threshold: Option<Tensor<FP32x32>>,
+        score_threshold: Option<Tensor<FP32x32>>,
+        center_point_box: usize
+    ) -> Tensor<FP32x32> {
+        functional::nonmax_suppression::nonmax_suppression(boxes, scores, max_output_boxes_per_class, iou_threshold, score_threshold, center_point_box)
+    }
 }

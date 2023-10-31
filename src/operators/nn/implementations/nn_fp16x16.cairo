@@ -68,4 +68,15 @@ impl FP16x16NN of NNTrait<FP16x16> {
     ) -> Tensor<FP16x16> {
         functional::gemm::gemm(A, B, C, alpha, beta, transA, transB)
     }
+
+    fn nonmax_suppression(
+        boxes: @Tensor<FP16x16>, 
+        scores: @Tensor<FP16x16>, 
+        max_output_boxes_per_class: Option<Tensor<FP16x16>>,
+        iou_threshold: Option<Tensor<FP16x16>>,
+        score_threshold: Option<Tensor<FP16x16>>,
+        center_point_box: usize
+    ) -> Tensor<FP16x16> {
+        functional::nonmax_suppression::nonmax_suppression(boxes, scores, max_output_boxes_per_class, iou_threshold, score_threshold, center_point_box)
+    }
 }

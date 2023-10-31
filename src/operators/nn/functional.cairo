@@ -9,3 +9,4 @@ mod logsoftmax;
 mod thresholded_relu;
 mod hard_sigmoid;
 mod gemm;
+mod nonmax_suppression;
