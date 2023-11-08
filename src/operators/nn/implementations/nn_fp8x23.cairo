@@ -75,6 +75,6 @@ impl FP8x23NN of NNTrait<FP8x23> {
         score_threshold: Option<Tensor<FP8x23>>,
         center_point_box: usize
     ) -> Tensor<FP8x23> {
-        functional::nonmax_suppression::nonmax_suppression(b, s, max, iou, score_threshold, center)
+        functional::nonmax_suppression::nonmax_suppression(boxes, scores, max_output_boxes_per_class, iou_threshold, score_threshold, center_point_box)
     }
 }

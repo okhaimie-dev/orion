@@ -71,6 +71,6 @@ impl FP64x64NN of NNTrait<FP64x64> {
         score_threshold: Option<Tensor<FP64x64>>,
         center_point_box: usize
     ) -> Tensor<FP64x64> {
-        functional::nonmax_suppression::nonmax_suppression(b, s, max, iou, score_threshold, center)
+        functional::nonmax_suppression::nonmax_suppression(boxes, scores, max_output_boxes_per_class, iou_threshold, score_threshold, center_point_box)
     }
 }
