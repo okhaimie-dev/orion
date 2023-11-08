@@ -23,14 +23,13 @@ fn nonmax_suppression<
     center_point_box: usize
 ) -> Tensor<T> {
     let mut boxes = ArrayTrait::<T>::new();
-    
     let mut selected_indices = ArrayTrait::<T>::new();
 
     loop {
 
     };
 
-    returnTensorTrait::new();
+    return selected_indices;
 }
 
 
